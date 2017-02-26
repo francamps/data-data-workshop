@@ -85,6 +85,7 @@ Let's talk about data formats: JSON, CSV, XML, XLS
   "id": 6356055,
   "name": "Barcelona"
 }
+```
 
 **CSV**
 ```
