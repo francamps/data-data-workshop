@@ -10,8 +10,8 @@ Data-Data Workshop
 Overview
 --------
 
-- Taught by Thibaut Evrard and Franc Camps-Febrer.
-- This is a student-run workshop, framed within the Desense elective, run by John Fass and Matt Lewis, within the IED Master at the Royal College of Art (London) in the spring term of 2017.
+- This workshop will be taught by Thibaut Evrard and Franc Camps-Febrer at the RCA on March 1st, 2017.
+- The workshop is framed within the Desense elective, run by John Fass and Matt Lewis, which is part of the IED Master at the Royal College of Art (London).
 - The workshop is provided _as is_, with no guarantees of epiphanies or life-changing experiences, but a positive hope of being helpful.
 
 Description
@@ -137,13 +137,8 @@ Exercise 2
 
 We will be using live API data to visualize / sonify / texify it and play around.
 
-Resources to learn more
-----------------------
-
-
-
-Tools
------
+Resources and tools to learn more
+---------------------------------
 
 **Editors**
 - [Atom](https://atom.io/) is a powerful editor for any programming language you would like to use, and very easily integrated with Github (it is also developed by them).
