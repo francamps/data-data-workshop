@@ -1,11 +1,15 @@
 Data-Data Workshop
 ==================
 
+"What does a baby computer call its father?"
+"Data."
+_Her_, Spike Jones
+
 Overview
 --------
 
 - Taught by Thibaut Evrard and Franc Camps-Febrer.
-- This is a student-run workshop, framed within the Desense elective, run by John Fass and Matt Lewis, within the IED Master at the Royal College of Art, London, in the spring term of 2017.
+- This is a student-run workshop, framed within the Desense elective, run by John Fass and Matt Lewis, within the IED Master at the Royal College of Art (London) in the spring term of 2017.
 - The workshop is provided _as is_, with no guarantees of epiphanies or life-changing experiences, but a positive hope of being helpful.
 
 Description
@@ -36,7 +40,7 @@ A list of examples:
 - [Out of Sight, Out of Mind - Pitch Interactive](http://drones.pitchinteractive.com/)
 - [Wind Map - PointB](http://hint.fm/wind/)
 - [Meshu](http://meshu.io/)
-- [Good Morning - Jer Throp](https://vimeo.com/6239027)
+- [Just Landed - ](https://vimeo.com/4587178)
 - [MTA.me - Alexander Cheng](http://www.mta.me/)
 - [Nicolas Feltron](http://feltron.com/FAR14.html)
 - [p5, Patterned By Nature, Data Chandelier - Lauren McCarthy](http://lauren-mccarthy.com/)
@@ -47,16 +51,18 @@ A list of examples:
 Exercise 1
 ----------
 
+Tutorial:
 We will use a prepackaged JSON file and play around with it using p5.
 
 What is open Data? 
 ------------------
 
 Open Data repositories examples:
+- [London Open Data](https://data.london.gov.uk)
 - [UK GOV](https://data.gov.uk/)
 - [World Bank](http://data.worldbank.org/)
 
-What is an API?
+What is an Application Programming Interface or API?
 --------------
 
 We will look at what exactly is an API, what can be done with them?
@@ -67,8 +73,7 @@ Examples can be found here:
 Exercise 2
 ----------
 
-We will be using live API data to visualize / sonify / texify it and play around
-
+We will be using live API data to visualize / sonify / texify it and play around.
 
 Resources to learn more
 ----------------------
@@ -84,10 +89,10 @@ Tools
 - p5 has an [editor](https://github.com/processing/p5.js-editor) but is deprecated, meaning it is no longer supported. You can use it in the meantime as a testing tool, and it is useful to simply try things out, but make no long-term plans with it.
 
 **Visual tools and libraries**
-- [d3](https://d3js.org/) is a library for data manipulation and visualization in the web, using SVG and javascript.
 - [p5](https://p5js.org) is an implementation of Processing as a javascript library, so that you can code processing sketches and display on the web. 
 - [Processing](https://processing.org/) You know this.
 - [openFrameworks](openframeworks.cc) is a set of tools and libraries written in C++ designed for creative coding. It can be a daunting in the beginning but it is extremely powerful and widely used.
+- [d3](https://d3js.org/) is a library for data manipulation and visualization in the web, using SVG and javascript.
 
 **Other tools**
 - [POSTMAN](https://www.getpostman.com/) is a tool for testing API calls.
