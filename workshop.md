@@ -23,9 +23,24 @@ What is data? And what can be done with it?
 
 Data art, visualization or sonification are forms of translation and mapping from data onto perceptual experiences that may provide different channels to incorporate sensory and intellectual information in our models.
 
-### What are some common data formats?
-
-Let's talk about data formats: JSON, CSV, XML
+```
+{
+  "coord": {
+    "lon": 2.13,
+    "lat": 41.4
+  },
+  "temp": 16.5,
+  "pressure": 1018,
+  "humidity": 45,
+  "visibility": 10000,
+  "wind": {
+    "speed": 2.1,
+    "deg": 230
+  },
+  "id": 6356055,
+  "name": "Barcelona"
+}
+```
 
 ### What are some examples of data art / visualization / design?
 A list of examples:
@@ -48,11 +63,55 @@ A list of examples:
 - [Histography](http://histography.io/)
 - [Quotidian Record - Brian House](http://brianhouse.net/works/quotidian_record/)
 
+### What are some common data formats?
+
+Let's talk about data formats: JSON, CSV, XML, XLS
+
+**JSON**
+```
+{
+  "coord": {
+    "lon": 2.13,
+    "lat": 41.4
+  },
+  "temp": 16.5,
+  "pressure": 1018,
+  "humidity": 45,
+  "visibility": 10000,
+  "wind": {
+    "speed": 2.1,
+    "deg": 230
+  },
+  "id": 6356055,
+  "name": "Barcelona"
+}
+
+**CSV**
+```
+"KpiId","KpiName","Value","Period","CollectionFrequency"
+"CJGE32","Business","127","2014/2015_Apr","23", "Something"
+"CJGE32","Business","235","2014/2015_May","23", "Something"
+"CJGE32","Business","324","2014/2015_Jun","23", "Something"
+"CJGE32","Business","431","2014/2015_Jul","23", "Something"
+```
+
+**XML**
+```
+<note>
+  <to>Tove</to>
+  <from>Jani</from>
+  <heading>Reminder</heading>
+  <body>Don't forget me this weekend!</body>
+</note>
+```
+
 Exercise 1
 ----------
 
 Tutorial:
 We will use a prepackaged JSON file and play around with it using p5.
+
+[Go to Exercise 1](Exercise1/README.md)
 
 What is open Data? 
 ------------------
