@@ -123,6 +123,16 @@ We will use a prepackaged JSON file and play around with it using p5.
 What is open Data? 
 ------------------
 
+The Open Knowledge International defines open data as:
+
+```
+“Open means anyone can freely access, use, modify, and share for any purpose (subject, at most, to requirements that preserve provenance and openness).”
+```
+
+This means open data must be free to use, must have minimized its barriers of access and free to re-use and redistribute. It is a very large and important topic in the current state of our society, and the precise definition of it has enormous legal, political and cultural implications. 
+
+For a longer, more detail and precise explanation that I will ever be able to give, see the [Open Data Handbook](http://opendatahandbook.org/) edited by the Open Knowledge Foundation and the World Bank.
+
 Open Data repositories examples:
 - [London Open Data](https://data.london.gov.uk)
 - [UK GOV](https://data.gov.uk/)
@@ -131,7 +141,11 @@ Open Data repositories examples:
 What is an Application Programming Interface or API?
 --------------
 
-We will look at what exactly is an API, what can be done with them?
+In very abstract and simplified terms, an API is a set of tools that an application provides in order to interact with it _programmatically_, that is, using code. In our context, we will usually understand it as a web API, which tends to refer to a set of URLs that web application provides so that we can get some data from it or post some data onto the application.
+
+The API of Youtube will allow to get information from Youtube's search results that would usually be relatively difficult to get from its interface, such as the most viewed videos in a certain radius, which will be the topic of our second exercise.
+
+Another example for API use are Twitter bots, applications that _POST_ to Twitter automatically given a set of conditions, such as [Two Headlines](https://twitter.com/TwoHeadlines), [Every Color](https://twitter.com/everycolorbot) or [NYPD edits](https://twitter.com/nypdedits).
 
 Examples can be found here:
 - [Programmable Web - a long list of available APIs](http://www.programmableweb.com)
