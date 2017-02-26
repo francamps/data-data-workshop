@@ -5,7 +5,7 @@ Here we will use some weather data in JSON format to visualize the different tim
 
 We will work with a JSON file with some weather and geographical data and we will build a visualization of the time at which the sun rises in 5 cities around the world.
 
-![The Castle](http://chrisnovello.com/teaching/risd/computer-utopias/media/tumblr_npyuczPLOV1skasmxo1_540.gif)
+![The sun](http://cdn0.techly.com.au/wp-content/uploads/2015/08/tumblr_nr2569nqX01qze3hdo1_r2_500.gif)
 
 We will use data obtained from OpenWeatherData, but you don't have to download it from there, we did for you.
 
