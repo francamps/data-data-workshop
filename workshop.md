@@ -16,6 +16,13 @@ the most common formats and we will review a couple of easy ways of obtaining da
 What is data? And what can be done with it?
 -------------------------------------------
 
+Data art, visualization or sonification are forms of translation and mapping from data onto perceptual experiences that may provide different channels to incorporate sensory and intellectual information in our models.
+
+### What are some common data formats?
+
+Let\'s talk about data formats: JSON, CSV, XML
+
+### What are some examples of data art / visualization / design?
 A list of examples:
 - [We feel fine - Jonathan Harris](http://number27.org/wefeelfine)
 - [Dear Data - Stephanie Posavec, Giorgia Lupi](http://www.dear-data.com/theproject)
@@ -26,7 +33,7 @@ A list of examples:
 - [Maral Pourkazemi](http://www.monoment.io)
 - [Polygraph](http://polygraph.cool/miles/)
 - [Out of Sight, Out of Mind - Pitch Interactive](http://drones.pitchinteractive.com/)
-- [Wind Map - PointB(http://hint.fm/wind/)
+- [Wind Map - PointB](http://hint.fm/wind/)
 - [Meshu](http://meshu.io/)
 - [Good Morning - Jer Throp](https://vimeo.com/6239027)
 - [MTA.me - Alexander Cheng](http://www.mta.me/)
@@ -44,12 +51,17 @@ We will use a prepackaged JSON file and play around with it using p5.
 What is open Data? 
 ------------------
 
-Open Data repositories
+Open Data repositories examples:
+- [UK GOV](https://data.gov.uk/)
+- [World Bank](http://data.worldbank.org/)
 
 What is an API?
 --------------
 
 We will look at what exactly is an API, what can be done with them?
+
+Examples can be found here:
+- [Programmable Web - a long list of available APIs](http://www.programmableweb.com)
 
 Exercise 2
 ----------
