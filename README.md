@@ -23,6 +23,8 @@ the most common data formats and we will review a couple of easy ways of obtaini
 What is data? And what can be done with it?
 -------------------------------------------
 
+![modeling](modeling.png)
+
 Data art, visualization or sonification are forms of translation and mapping from data onto perceptual experiences that may provide different channels to incorporate sensory and intellectual information in our models.
 
 ```
