@@ -3,6 +3,9 @@ Data-Data Workshop
 
 Overview
 --------
+- This is a student-run workshop, framed within the Desense elective, run by John Fass and Matt Lewis, within the IED Master at the Royal College of Art, London, in the spring term of 2017.
+- Taught by Thibaut Evrard and Franc Camps-Febrer.
+- The workshop is provided _as is_, with no guarantees of epiphanies or life-changing experiences, but a positive hope of being helpful.
 
 Descirption
 ------------
@@ -36,5 +39,25 @@ A list of examples:
 Exercise 1
 ----------
 
-What is open Data? What is an API?
-----------------------------------
+We will use a prepackaged JSON file and play around with it using p5.
+
+What is open Data? 
+------------------
+
+Open Data repositories
+
+What is an API?
+--------------
+
+We will look at what exactly is an API, what can be done with them?
+
+Exercise 2
+----------
+
+We will be using live API data to visualize / sonify / texify it and play around
+
+
+Resources to learn more
+----------------------
+
+Here will go some additional stuff
