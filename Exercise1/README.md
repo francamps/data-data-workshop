@@ -16,5 +16,9 @@ You will need p5's IDE and a JSON file included here called [5cities\_mini.json]
 
 Let's take a look at the file first.
 
+Download (p5.js' editor from here)[].
+
+**IMPORTANT** P5 is a young library and is a community-run project. This editor has been deprecated in pro of a web editor that is not yet ready. We think using this editor for a workshop is useful because it helps us focus on the code and the data, and forget about putting a site together or running a server, but be aware that this editor may stop working in the future. If you want to keep working with p5 you should probably learn to use it in a regular browser or more generic editor like Atom or Sublime.
+
 Code
 ----
