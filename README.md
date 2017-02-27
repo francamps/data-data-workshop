@@ -144,6 +144,8 @@ Open Data repositories examples:
 - [UK GOV](https://data.gov.uk/)
 - [World Bank](http://data.worldbank.org/)
 
+Extra: here is an [interesting article](https://medium.com/memo-random/open-for-who-ce698a8de79c#.g3wbg34ms) about standarizing a definition of open based on a scale from 0 to 5, by the founder of The Office for Creative Research in NYC.
+
 What is an Application Programming Interface or API?
 --------------
 
