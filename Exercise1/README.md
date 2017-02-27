@@ -20,3 +20,42 @@ Code
 ----
 
 Start here.
+
+## 1. Start here
+
+p5 is an implementation of Processing in javascript. The main magic happens between two functions, `setup` and `draw`. Keep refering to the documentation of [p5]() to find functions that are useful for what you want.
+
+```
+// _You may declare some variables here_
+function setup() {
+    // _Here you set up the variables and the canvas before starting_
+}
+
+function draw() {
+    // _This function is called once every frame, so movements and dynamic functions will be called here_
+}
+```
+
+In setup we can start the canvas where we are going to draw, and then draw some stuff using the `draw` function, for example, a big sun-like circle. Here we'll introduce also the notion of color.
+
+```
+var yellow;
+var pink;
+
+function setup() {
+  yellow = color(255, 204, 0, 50);
+  pink = color(255, 0, 190, 5);
+  createCanvas(800, 600);  
+}
+
+function draw() {
+  fill(yellow);
+  strokeWeight(2);
+  stroke(255, 255, 255);
+  ellipse(mouseX, mouseY, 50, 50);
+}
+```
+
+This would give you something like:
+
+![Circles](Images/circles.png)

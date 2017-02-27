@@ -184,3 +184,18 @@ var data = {
 
 // CODE WILL START HERE
 // =====================
+var yellow;
+var pink;
+
+function setup() {
+  yellow = color(255, 204, 0, 50);
+  pink = color(255, 0, 190, 5);
+  createCanvas(800, 600);  
+}
+
+function draw() {
+  fill(yellow);
+  strokeWeight(2);
+  stroke(255, 255, 255);
+  ellipse(mouseX, mouseY, 50, 50);
+}
