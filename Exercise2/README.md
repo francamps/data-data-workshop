@@ -21,6 +21,31 @@ Let's take a look on the Search/List section of the reference.
 We can see the HTTP request example with a list of different parameters. We can now create our request : 
 https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&location=48.881311,2.076968&locationRadius=1km&order=viewCount&key=A
 
+with this URL, you should access a JSON page that looks like this:
+
+**JSON**
+```
+{
+  "kind": "youtube#searchListResponse",
+  "etag": "\"uQc-MPTsstrHkQcRXL3IWLmeNsM/oABz3UmuCpKcjosDBd0yg2YxLtM\"",
+  "nextPageToken": "CAUQAA",
+  "regionCode": "GB",
+  "pageInfo": {
+    "totalResults": 1181,
+    "resultsPerPage": 5
+  },
+  "items": [
+  {
+  "kind": "youtube#searchResult",
+  "etag": "\"uQc-MPTsstrHkQcRXL3IWLmeNsM/nChV1-Y8eLWG2LAGuC99KHwR7qk\"",
+  "id": {
+    "kind": "youtube#video",
+    "videoId": "VIkG0UlCh9s"
+  },
+  etc.
+```
+
+
 ## C: Getting the data into P5 and transforming it
 If we type this as a request in the browser, we can see a list of informations appearing. 
 What we are now going to do is to use P5 to re use this information.
