@@ -19,8 +19,6 @@ As an alternative to the editor, you can also use the template for a website in 
 Code
 ----
 
-Start here.
-
 ## 1. Start here
 
 p5 is an implementation of Processing in javascript. The main magic happens between two functions, `setup` and `draw`. Keep refering to the documentation of [p5]() to find functions that are useful for what you want.
@@ -59,3 +57,21 @@ function draw() {
 This would give you something like:
 
 ![Circles](images/circles.png)
+
+2. Let's get da'ty
+
+Now that we have something going on, let's see if we can load some data and play around with. Let's look at the JSON file we have with weather and time information for a second, the `5cities\_mini.json`. We will load the file straight from the script, but let's start using it from a variable where we copy the content itself. 
+
+
+
+5. Next steps
+
+In the next exercise we'll look at how to load data on the fly with a call. To load this data from the script itself and Open Weather Map endpoints, you would use something like this:
+
+```
+var weather;
+function preload() {
+  var url = 'http://api.openweathermap.org/data/2.5/group?id=6356055,3451190,1835848,5368361,112931&units=metric&appid={{ YOUR API KEY }}
+  weather = loadJSON(url);
+}
+```

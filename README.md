@@ -176,6 +176,8 @@ Resources and tools to learn more
 - [Processing](https://processing.org/) You know this.
 - [openFrameworks](openframeworks.cc) is a set of tools and libraries written in C++ designed for creative coding. It can be a daunting in the beginning but it is extremely powerful and widely used.
 - [d3](https://d3js.org/) is a library for data manipulation and visualization in the web, using SVG and javascript.
+- [Paper.js](http://paperjs.org/examples/q-bertify/) is another visual library for javascript, fairly simple although not so popular.
+- [THREE.js](http://www.threejs.org) is a 3D rendering library for javascript, based on WebGL. You can do some really crazy stuff with it.
 
 **Other tools**
 - [POSTMAN](https://www.getpostman.com/) is a tool for testing API calls.

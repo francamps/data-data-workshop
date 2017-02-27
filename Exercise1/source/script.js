@@ -187,7 +187,13 @@ var data = {
 var yellow;
 var pink;
 
-function setup() {
+var weather;
+function preload() {
+  var url = '../5cities_mini.json';
+  weather = loadJSON(url);
+}
+
+function setup() {  
   yellow = color(255, 204, 0, 50);
   pink = color(255, 0, 190, 5);
   createCanvas(800, 600);  
