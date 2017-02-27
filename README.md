@@ -29,6 +29,8 @@ What is data? And what can be done with it?
 
 Data art, visualization or sonification are forms of translation and mapping from data onto perceptual experiences that may provide different channels to incorporate sensory and intellectual information in our models.
 
+How do you go from this...
+
 ```
 {
   "coord": {
@@ -47,6 +49,10 @@ Data art, visualization or sonification are forms of translation and mapping fro
   "name": "Barcelona"
 }
 ```
+
+...to this?
+
+![Sound Sculpture - Onformative](http://onformative.com/assets/work/unnamedsoundsculpture_07.jpg)
 
 ### What are some examples of data art / visualization / design?
 A list of examples:
