@@ -58,13 +58,13 @@ This would give you something like:
 
 ![Circles](images/circles.png)
 
-2. Let's get da'ty
+## 2. Let's get da'ty
 
 Now that we have something going on, let's see if we can load some data and play around with. Let's look at the JSON file we have with weather and time information for a second, the `5cities\_mini.json`. We will load the file straight from the script, but let's start using it from a variable where we copy the content itself. 
 
 
 
-5. Next steps
+## 5. Next steps
 
 In the next exercise we'll look at how to load data on the fly with a call. To load this data from the script itself and Open Weather Map endpoints, you would use something like this:
 
