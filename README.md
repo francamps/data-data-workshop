@@ -5,7 +5,7 @@ Data-Data Workshop
 
 "Data."
 
-**_Her_**, Spike Jones
+**_Her_**, Spike Jonze
 
 ![Data](https://images.newrepublic.com/ef058272ccfde1f110628d21fdf9eafcc190d0cd.jpeg)
 
