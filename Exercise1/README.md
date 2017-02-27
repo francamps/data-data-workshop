@@ -58,4 +58,4 @@ function draw() {
 
 This would give you something like:
 
-![Circles](Images/circles.png)
+![Circles](images/circles.png)
