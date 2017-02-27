@@ -47,13 +47,24 @@ with this URL, you should access a JSON page that looks like this:
 
 
 ## C: Getting the data into P5 and transforming it
-If we type this as a request in the browser, we can see a list of informations appearing. 
-What we are now going to do is to use P5 to re use this information.
+The JSON request we made gives us access to the most viewed youtube videos uploaded within 100m from a precise location. We would like to create a webpage that lists the names and links to those videos.
 
 ### 1: Importing the file into P5
 First, we need to load the file that we have on our browser into P5.
 Then we are going to print the data we get in the console.
-The JSON request we made gives us access to the most viewed youtube videos uploaded within 100meters from a precise location. We would like to create a webpage that lists the names and links to those videos.
+
+**sketch.js**
+```
+var url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&location=48.848998,%202.347541&locationRadius=100m&order=viewCount&key=[KEY]'
+
+function setup() {
+  loadJSON(url,gotData);
+}
+
+function gotData(data) {
+  print(data);
+}
+```
 
 ### 2: Parsing the data into P5
 The query we made allows us to access a list of videos uploaded within 100m of a specific GPS point and classified depending on their number of views. 
@@ -67,9 +78,32 @@ In our JSON file, the video ID is stored into: items[x].id.videoID
 The title of the video is stored into: items[x].snippet.title
 (the path is items[x] because this section of the file is an array: a box that contains 'x'similar boxes)
 
+**sketch.js**
+```
+for(var i = 0; i<data.items.length; i++) {
+  videoID = data.items[i].id.videoId;
+  videoName = data.items[i].snippet.title;
+}
+```
+
 ### 2: From JSON to P5, from P5 to HTML
 Now that we have access to the information, we can write a program that enters each of the boxes and gets the information we need.
 Then, we'll transfer those information to our HTML code to display them as links.
+
+**index.html**
+```
+<body>
+  <p id = "demo"></p>
+</body>
+```
+
+**sketch.js**
+```
+link[i] = 'https://www.youtube.com/watch?v=' + videoID;
+title[i] = videoName;
+var result = title[i].link(link[i]);
+document.getElementById("demo").innerHTML += result + "<br>";
+```
 
 ## D: Going further
 
