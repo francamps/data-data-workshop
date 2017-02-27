@@ -156,10 +156,12 @@ Another example for API use are Twitter bots, applications that _POST_ to Twitte
 Examples can be found here:
 - [Programmable Web - a long list of available APIs](http://www.programmableweb.com)
 
-Exercise 2
-----------
+Exercise 2: Live API data
+-------------------------
 
 We will be using live API data to visualize / sonify / texify it and play around.
+
+Go to [Exercise 2](Exercise2/).
 
 Resources and tools to learn more
 ---------------------------------

@@ -1,7 +1,9 @@
-Exercice 2: 
+Exercice 2
+==========
+
 In this exercice, we are going to create a tool that researches youtube videos based on geolocation.
 
-As we want to get data from youtube, we will need to use It's API. API's give you access to data you will not necesseraly be able to get by just browsing the website of the service, this is why API often require a key in order to know who is doing what with the Data.
+As we want to get data from youtube, we will need to use its API. API's give you access to data you will not necesseraly be able to get by just browsing the website of the service, this is why API often require a key in order to know who is doing what with the Data.
 
 First, we'll need to subscribe to the API and get our user key from it:
 https://console.developers.google.com/apis/dashboard?project=test-159315&duration=PT1H
