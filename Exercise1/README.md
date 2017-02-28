@@ -2,6 +2,7 @@ Exercise 1: Data Sunrise
 ========================
 
 ![The sun](http://cdn0.techly.com.au/wp-content/uploads/2015/08/tumblr_nr2569nqX01qze3hdo1_r2_500.gif)
+
 (_I am unable to find the author of this gif, if you know her/him, let me know so I can credit_)
 
 Here we will play with some downloaded data. We will work with a JSON file with some weather and geographical data from [Open Weather Map](http://www.openweathermap.org/current) and we will build a visualization of the time at which the sun rises in 5 cities around the world.
