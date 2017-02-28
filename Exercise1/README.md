@@ -3,7 +3,7 @@ Exercise 1: Data Sunrise
 
 ![The sun](http://cdn0.techly.com.au/wp-content/uploads/2015/08/tumblr_nr2569nqX01qze3hdo1_r2_500.gif)
 
-(_I am unable to find the author of this gif, if you know her/him, let me know so I can credit_)
+(I am unable to find the author of this gif, if you know her/him, let me know so I can credit)
 
 Here we will play with some downloaded data. We will work with a JSON file with some weather and geographical data from [Open Weather Map](http://www.openweathermap.org/current) and we will build a visualization of the time at which the sun rises in 5 cities around the world.
 
@@ -12,7 +12,7 @@ Before starting
 
 You will need p5's IDE and a JSON file included here called [5cities\_mini.json](5cities\_mini.json).
 
-You will also need to download [p5.js' editor from here](https://p5js.org/download/). The application should look likt this:
+You will also need to download [p5.js' editor from here](https://p5js.org/download/). The application should look like this:
 
 ![p5 editor](images/p5basic.png)
 
@@ -192,13 +192,15 @@ function draw() {
 
 ## 4. In progress
 
-Play around with the colors, the movement and all that.
+Now we'll do a few more things. We'll get the sun hight based on the sunrise time of each city, making sure we're subtracting the timestamp since the beginning of the day. 
+
+Notice we're iterating over the cities that are accessed through `data.list`, picking the city with the `i` index and then accessing the sunrise timestamp with `data.list[i].sunrise`.
 
 ```
-var yellow;
-var pink;
 var WIDTH = 800;
 var HEIGHT = 400;
+var labelsHeight = 50;
+var skyHeight = HEIGHT - labelsHeight;
 
 function setup() {
   frameRate(30);
@@ -209,24 +211,32 @@ function setup() {
 
 function draw() {
   background(255);
+  fill(yellow);
+  strokeWeight(2);
+  stroke(255, 255, 255);
+  fill(0);
+  text((frameCount/30).toFixed(2), 10, 10);
+
+
   for (var i = 0; i < data.list.length; i++) {
     var sunrise = data.list[i].sunrise - data.today;
     var cityX = 130 * i + 30;
-
+    var sunHeight = skyHeight - (skyHeight * sunrise/84600);
+    
     // Labels
     fill(0);
     textAlign(CENTER);
     text(data.list[i].name, cityX + 35, HEIGHT - 20);
 
-    // Background Sky
+    // Background sky
     fill(pink)
-    rect(cityX - 30, 0, 130, HEIGHT - 50)
+    rect(cityX - 30, 0, 130, skyHeight)
 
     // Suns
     fill(255, 204, 0);
     strokeWeight(2);
     stroke(255, 255, 255);
-    ellipse(cityX + 35, 300 - (sunrise * 200/84600), 50, 50);
+    ellipse(cityX + 35, sunHeight, 50, 50);
   }
 }
 ```
