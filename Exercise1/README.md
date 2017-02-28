@@ -10,7 +10,9 @@ Before starting
 
 You will need p5's IDE and a JSON file included here called [5cities\_mini.json](5cities\_mini.json).
 
-You will also need to download [p5.js' editor from here](https://p5js.org/download/). 
+You will also need to download [p5.js' editor from here](https://p5js.org/download/). The application should look likt this:
+
+![p5 editor](p5_basic.png)
 
 As an alternative to the editor, you can also use the template for a website in the folder [source](source). In fact, we suggest you learn how to manipulate the files themselves, but you can try that on your own.
 
@@ -23,6 +25,12 @@ Code
 
 p5 is an implementation of Processing in javascript. The main magic happens between two functions, `setup` and `draw`. Keep refering to the documentation of [p5]() to find functions that are useful for what you want.
 
+One you start the editor, it'll open a basic empty file with two functions.
+
+You'll notice play button on top of the editor, which is used to _run_ the sketch. When you run the sketch, p5 runs a small server in the background and opens an HTML site that runs your sketch, which is how p5 generally works. You don't have to worry about this for now, but it'll be important for later projects. 
+
+So the two functions at the basis of the project are `setup()` and draw()`.
+
 ```
 // _You may declare some variables here_
 function setup() {
@@ -34,15 +42,58 @@ function draw() {
 }
 ```
 
-In setup we can start the canvas where we are going to draw, and then draw some stuff using the `draw` function, for example, a big sun-like circle. Here we'll introduce also the notion of color.
+In `setup` we can start the canvas where we are going to draw, and then draw some stuff using the `draw` function, for example, a big sun-like circle. Here we'll introduce also the notion of color.
 
 ```
 var yellow;
-var pink;
 
 function setup() {
   yellow = color(255, 204, 0, 50);
-  pink = color(255, 0, 190, 5);
+  createCanvas(800, 600);  
+}
+
+function draw() {
+  fill(yellow);
+  ellipse(200, 200, 50, 50);
+}
+```
+
+
+There are a few things happening here:
+
+- `createCanvas()` create a space of 800x600px where we are going to be drawing.
+- For every frame, the `draw()` function draws a circle (or ellipse) of 50px of diameter, and it draws it at the coordinates (200, 200). The system of reference starts at (0, 0) on the top left corner of the canvas.
+
+Since `draw()` is called once per frame, if we want to create something dynamic, it is here that we have to do it. For example, we can draw a circle that moves from left to right.
+
+```
+var yellow;
+var xPos;
+
+function setup() {
+  yellow = color(255, 204, 0, 50);
+  xPos = 0;
+  createCanvas(800, 600);  
+}
+
+function draw() {
+  xPos = xPos + 0.2;
+  fill(yellow);
+  ellipse(xPos, 200, 50, 50);
+}
+```
+
+That's cool, the thing moves. We can also add some transparency to the color, change the stroke color and most importantly, repaint the background with every frame so that it doesn't leave this black trace, although if you like that it can be used for coolness too.
+
+![circle moving](circle_moving.png)
+
+This gives us a lot of possibilities. You can for example use the mouse position to draw circles, like so:
+
+```
+var yellow;
+
+function setup() {
+  yellow = color(255, 204, 0, 50);
   createCanvas(800, 600);  
 }
 
@@ -58,11 +109,13 @@ This would give you something like:
 
 ![Circles](images/circles.png)
 
+Ok, now that we've started understanding how to draw things, let's load some data.
+
 ## 2. Let's get da'ty
 
 Now that we have something going on, let's see if we can load some data and play around with. Let's look at the JSON file we have with weather and time information for a second, the `5cities\_mini.json`. We will load the file straight from the script, but let's start using it from a variable where we copy the content itself. 
 
-
+Our data contains an object, delimited by `{}` curly brackets, and an array, delimited by `[]`.
 
 ## 5. Next steps
 

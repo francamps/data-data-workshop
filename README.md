@@ -53,6 +53,7 @@ How do you go from this...
 ...to this?
 
 ![Sound Sculpture - Onformative](http://onformative.com/assets/work/unnamedsoundsculpture_07.jpg)
+_Sound Sculpture - Onformative (2012)_
 
 ### What are some examples of data art / visualization / design?
 A list of examples:
@@ -183,3 +184,6 @@ Resources and tools to learn more
 
 **Other tools**
 - [POSTMAN](https://www.getpostman.com/) is a tool for testing API calls.
+
+**Learning resources**
+- [Introduction to Data Visualization - UC Berkeley](http://paldhous.github.io/ucb/2016/dataviz/index.html) is a wonderful resource for data visualization, focusing on the analytical and rational part, more than the expressive one, but if you're into that, it's highly recommended.

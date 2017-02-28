@@ -188,20 +188,43 @@ var yellow;
 var pink;
 
 var weather;
-function preload() {
+/*function preload() {
   var url = '../5cities_mini.json';
   weather = loadJSON(url);
-}
+}*/
+
+var WIDTH = 800;
+ver HEIGHT = 600;
 
 function setup() {  
-  yellow = color(255, 204, 0, 50);
-  pink = color(255, 0, 190, 5);
-  createCanvas(800, 600);  
+  frameRate(30);
+  yellow = color(255, 204, 0);
+  pink = color(255, 0, 190, 80);
+  createCanvas(WIDTH, HEIGHT);  
+  
+
 }
 
 function draw() {
+  background(255);
   fill(yellow);
   strokeWeight(2);
   stroke(255, 255, 255);
   ellipse(mouseX, mouseY, 50, 50);
+  fill(0);
+  text((frameCount/30).toFixed(2), 10, 10);
+  
+  var lastMidNight = new Date(2017, 01, 26, 0, 0,0).getTime()/1000;
+  
+  for (var i = 0; i < data.list.length; i++) {
+    var sunrise = data.list[i].sys.sunrise - lastMidNight;
+    var cityX = 130*i+30;
+    fill(0);
+    text(data.list[i].name + ": " + sunrise, cityX, 550);
+
+    fill(255, 204, 0, 300*sunrise / 84600);
+    strokeWeight(2);
+    stroke(255, 255, 255);
+    ellipse(cityX + 25, 500 - (sunrise * 200/84600), 50, 50);
+  }
 }
