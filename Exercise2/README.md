@@ -80,9 +80,28 @@ The title of the video is stored into: items[x].snippet.title
 
 **sketch.js**
 ```
-for(var i = 0; i<data.items.length; i++) {
-  videoID = data.items[i].id.videoId;
-  videoName = data.items[i].snippet.title;
+var url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&location=48.848998,%202.347541&locationRadius=100m&order=viewCount&key=[KEY]'
+var videoID;
+var videoName;
+var link = [5];
+var title = [5];
+
+
+function setup() {
+  loadJSON(url,gotData); 
+}
+
+function gotData(data) {
+  if(data) {
+    for(var i = 0; i<data.items.length; i++) {
+    videoID = data.items[i].id.videoId;
+    videoName = data.items[i].snippet.title;
+    link[i] = 'https://www.youtube.com/watch?v=' + videoID;
+    title[i] = videoName;
+    print(link[i]);
+    print(title[i]);
+    }
+  }
 }
 ```
 
@@ -107,10 +126,23 @@ document.getElementById("demo").innerHTML += result + "<br>";
 
 ## D: Going further
 
+### 2: Local video density map
+Now we are going to create a youtube video density map. To do this in a really simple way, we are just going to make a black screen with 'n' points randomly displayed where 'n' is the number of videos that have been uploaded within 100m, in other words the number of results that we have.
+Luckily for us, we can directly find this data in our api query. our drawing method will be the following: count from 0 to numberVideos, and display a point at a random position at each stage.
+
+**sketch.js**
+```
+function videoDensity(data) {
+  background(0);
+  var numberVideos = data.pageInfo.totalResults;
+  print(numberVideos);
+  for(var i=0; i<numberVideos; i++) {
+    point(random(width),random(height));
+  }
+}
+```
+
 ### 1: Input field for GPS data
 Now we have a webpage that shows us the most viewed youtube videos within 100m, but the GPS point is fixed, we could modify it to give the user the opportunity to select the area he wants video from.
-
-### 2: Local video density map
-How could we do to create a visualisation of the local youtube density?
 
 
