@@ -27,7 +27,7 @@ p5 is an implementation of Processing in javascript. The main magic happens betw
 
 One you start the editor, it'll open a basic empty file with two functions.
 
-You'll notice play button on top of the editor, which is used to _run_ the sketch. When you run the sketch, p5 runs a small server in the background and opens an HTML site that runs your sketch, which is how p5 generally works. You don't have to worry about this for now, but it'll be important for later projects. 
+You'll notice play button on top of the editor, which is used to _run_ the sketch. When you run the sketch, p5 runs a small server in the background and opens an HTML site that runs your sketch, which is how p5 generally works. You don't have to worry about this for now, but it'll be important for later projects.
 
 So the two functions at the basis of the project are `setup()` and draw()`.
 
@@ -57,8 +57,6 @@ function draw() {
   ellipse(200, 200, 50, 50);
 }
 ```
-
-
 There are a few things happening here:
 
 - `createCanvas()` create a space of 800x600px where we are going to be drawing.
@@ -85,7 +83,7 @@ function draw() {
 
 That's cool, the thing moves. We can also add some transparency to the color, change the stroke color and most importantly, repaint the background with every frame so that it doesn't leave this black trace, although if you like that it can be used for coolness too.
 
-![circle moving](circle_moving.png)
+![circle moving](images/circle_moving.png)
 
 This gives us a lot of possibilities. You can for example use the mouse position to draw circles, like so:
 
@@ -113,9 +111,86 @@ Ok, now that we've started understanding how to draw things, let's load some dat
 
 ## 2. Let's get da'ty
 
-Now that we have something going on, let's see if we can load some data and play around with. Let's look at the JSON file we have with weather and time information for a second, the `5cities\_mini.json`. We will load the file straight from the script, but let's start using it from a variable where we copy the content itself. 
+Now that we have something going on, let's see if we can load some data and play around with. Let's look at the JSON file we have with weather and time information for a second, the `5cities\_mini.json`. We will load the file straight from the script, but let's start using it from a variable where we copy the content itself.
+
+We've obtained this data from the [Open Weather Map API](http://openweathermap.org/current), which is a wonderful API to get started, very open and pretty easy to use. One option that the API allows is to pull weather data from several cities at the same time. We'll talk about how that works later, let's focus on the data for now (which has been very simplified to get started).
 
 Our data contains an object, delimited by `{}` curly brackets, and an array, delimited by `[]`.
+
+```
+{
+  "today": 1488326400,
+  "list": [
+    {
+      "sunrise": 1488349619,
+      "temp": 16.5,
+      "wind": {
+        "speed": 2.1,
+        "deg": 230
+      },
+      "id": 6356055,
+      "name": "Barcelona"
+    },
+    {
+      "sunrise": 1488337514,
+      "temp": 16.31,
+      "wind": {
+        "speed": 6.2,
+        "deg": 270
+      },
+      "id": 112931,
+      "name": "Tehran"
+    }
+    ...
+}
+```
+
+You'll see this number for sunrise. This is called a Unix timestamp, and it is a way of standardizing all computer times. It refers to the number of seconds that have passed since January 1st 1970. (It is by the way going to stop working on 2038).
+
+If you look at the data again, you'll see a `today` field, which is the timestamp for March 1st 2017 at midnight. We'll use that to know how many seconds will have passed before the sun rises in each city.
+
+Let's go to the code and see how we access the data.
+
+## 3. Access data and draw
+
+Now let's start with accessing the sunrise timestamp and translating it to a position:
+
+```
+var yellow;
+var WIDTH = 800;
+var HEIGHT = 600;
+
+function setup() {
+  yellow = color(255, 204, 0);
+  createCanvas(WIDTH, HEIGHT);
+}
+
+function draw() {
+  background(255);
+  fill(0);
+  text((frameCount/30).toFixed(2), 10, 10);
+
+
+  for (var i = 0; i < data.list.length; i++) {
+    var sunrise = data.list[i].sunrise - data.today;
+    var cityX = 130 * i + 30;
+
+    fill(0);
+    text(data.list[i].name + ": " + sunrise, cityX, 550);
+
+    fill(yellow);
+    strokeWeight(2);
+    stroke(255, 255, 255);
+    ellipse(cityX + 25, 500 - (sunrise * 200/84600), 50, 50);
+  }
+}
+```
+
+![suns](images/suns.png)
+
+## 4. In progress
+
+_still in progress_
 
 ## 5. Next steps
 
