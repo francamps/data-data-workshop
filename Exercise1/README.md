@@ -2,6 +2,7 @@ Exercise 1: Data Sunrise
 ========================
 
 ![The sun](http://cdn0.techly.com.au/wp-content/uploads/2015/08/tumblr_nr2569nqX01qze3hdo1_r2_500.gif)
+(_I am unable to find the author of this gif, if you know her/him, let me know so I can credit_)
 
 Here we will play with some downloaded data. We will work with a JSON file with some weather and geographical data from [Open Weather Map](http://www.openweathermap.org/current) and we will build a visualization of the time at which the sun rises in 5 cities around the world.
 
@@ -190,7 +191,46 @@ function draw() {
 
 ## 4. In progress
 
-_still in progress_
+Play around with the colors, the movement and all that.
+
+```
+var yellow;
+var pink;
+var WIDTH = 800;
+var HEIGHT = 400;
+
+function setup() {
+  frameRate(30);
+  yellow = color(255, 204, 0);
+  pink = color(154, 124, 191);
+  createCanvas(WIDTH, HEIGHT);
+}
+
+function draw() {
+  background(255);
+  for (var i = 0; i < data.list.length; i++) {
+    var sunrise = data.list[i].sunrise - data.today;
+    var cityX = 130 * i + 30;
+
+    // Labels
+    fill(0);
+    textAlign(CENTER);
+    text(data.list[i].name, cityX + 35, HEIGHT - 20);
+
+    // Background Sky
+    fill(pink)
+    rect(cityX - 30, 0, 130, HEIGHT - 50)
+
+    // Suns
+    fill(255, 204, 0);
+    strokeWeight(2);
+    stroke(255, 255, 255);
+    ellipse(cityX + 35, 300 - (sunrise * 200/84600), 50, 50);
+  }
+}
+```
+
+![suns up](images/suns_up.png)
 
 ## 5. Next steps
 

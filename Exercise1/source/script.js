@@ -76,7 +76,7 @@ var HEIGHT = 400;
 function setup() {
   frameRate(30);
   yellow = color(255, 204, 0);
-  pink = color(255, 0, 190, 80);
+  pink = color(154, 124, 191);
   createCanvas(WIDTH, HEIGHT);
 
 
@@ -94,12 +94,18 @@ function draw() {
   for (var i = 0; i < data.list.length; i++) {
     var sunrise = data.list[i].sunrise - data.today;
     var cityX = 130 * i + 30;
+    
+    
     fill(0);
-    text(data.list[i].name + ": " + sunrise, cityX, 350);
+    textAlign(CENTER);
+    text(data.list[i].name, cityX + 35, HEIGHT - 20);
+
+    fill(pink)
+    rect(cityX - 30, 0, 130, HEIGHT - 50)
 
     fill(255, 204, 0);
     strokeWeight(2);
     stroke(255, 255, 255);
-    ellipse(cityX + 25, 300 - (sunrise * 200/84600), 50, 50);
+    ellipse(cityX + 35, 300 - (sunrise * 200/84600), 50, 50);
   }
 }
