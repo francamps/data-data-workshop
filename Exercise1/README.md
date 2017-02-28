@@ -14,7 +14,7 @@ You will need p5's IDE and a JSON file included here called [5cities\_mini.json]
 
 You will also need to download [p5.js' editor from here](https://p5js.org/download/). The application should look likt this:
 
-![p5 editor](p5_basic.png)
+![p5 editor](images/p5_basic.png)
 
 As an alternative to the editor, you can also use the template for a website in the folder [source](source). In fact, we suggest you learn how to manipulate the files themselves, but you can try that on your own.
 
