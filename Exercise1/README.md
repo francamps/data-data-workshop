@@ -115,7 +115,7 @@ Ok, now that we've started understanding how to draw things, let's load some dat
 
 Now that we have something going on, let's see if we can load some data and play around with. Let's look at the JSON file we have with weather and time information for a second, the `5cities\_mini.json`. We will load the file straight from the script, but let's start using it from a variable where we copy the content itself.
 
-We've obtained this data from the [Open Weather Map API](http://openweathermap.org/current), which is a wonderful API to get started, very open and pretty easy to use. One option that the API allows is to pull weather data from several cities at the same time. We'll talk about how that works later, let's focus on the data for now (which has been very simplified to get started).
+We've obtained this data from the [Open Weather Map API](http://openweathermap.org/current), which is a wonderful API to get started, very open and pretty easy to use. If you look at the file `5cities.json`, that is the format that comes straight from the API. I've simplified the data a little for this exercise. One option that the API allows is to pull weather data from several cities at the same time. We'll talk about how that works later, let's focus on the data for now (which has been very simplified to get started).
 
 Our data contains an object, delimited by `{}` curly brackets, and an array, delimited by `[]`.
 
@@ -147,7 +147,7 @@ Our data contains an object, delimited by `{}` curly brackets, and an array, del
 }
 ```
 
-You'll see this number for sunrise. This is called a Unix timestamp, and it is a way of standardizing all computer times. It refers to the number of seconds that have passed since January 1st 1970. (It is by the way going to stop working on 2038).
+You'll see this number for sunrise `1488349619`. This is called a Unix timestamp, and it is a way of standardizing all computer times. It refers to the number of seconds that have passed since January 1st 1970 in UTC time. (It is by the way going to stop working on 2038).
 
 If you look at the data again, you'll see a `today` field, which is the timestamp for March 1st 2017 at midnight. We'll use that to know how many seconds will have passed before the sun rises in each city.
 
@@ -155,12 +155,69 @@ Let's go to the code and see how we access the data.
 
 ## 3. Access data and draw
 
-Now let's start with accessing the sunrise timestamp and translating it to a position:
+Now let's go back to our code and see how we can access this data. We'll access some of the data and map it to a position.
+
+To load a data file, we can use the function `loadJSON()`, which looks for a data in JSON. You can pass a file in your own system or a URL that you know is going to give back some JSON. We'll start by using our own file, `5cities_mini.json`.
+
+```
+var data;
+function preload() {
+  var url = './5cities_mini.json';
+  data = loadJSON(url);
+}
+```
+
+Since loading data takes always a certain amount of time, we'll use the function `preload()` **before** `setup()`, so that once the data is loaded, p5 knows it can start with the rest of the code. Note that I'm storing the data in a `data` variable for our use afterwards.
+
+Cool, so now we have the data stored in this variable `data`, let's see how we can access it.
+
+Notice that each city is stored as an object `{}` inside an array `[]`. In order to access the first object of the array (which is called `list` here), we do:
+
+```
+data.list[0]
+```
+
+which would be equal to:
+
+```
+{
+  "sunrise": 1488349619,
+  "temp": 16.5,
+  "wind": {
+    "speed": 2.1,
+    "deg": 230
+  },
+  "id": 6356055,
+  "name": "Barcelona"
+}
+```
+
+Knowing this, we can access each one of them by running the same function five times, one per each city. For example, I'd like to draw the names of the cities. We'd do so with a `for` loop like:
+
+```
+for (var i = 0; i < data.list.length; i++) {
+  fill(0);
+  text(data.list[i].name + ": " + sunrise, cityX, 50);
+}
+```
+
+![Labels](images/labels.png)
+
+Great, we've got some data and displayed it. Now let's look at the time data and what to do with that.
+
+## 4. Data suns
+
+Now we'll do a few more things. We'll get the sun hight based on the sunrise time of each city, making sure we're subtracting the timestamp since the beginning of the day.
+
+Notice we're iterating over the cities that are accessed through `data.list`, picking the city with the `i` index and then accessing the sunrise timestamp with `data.list[i].sunrise`.
 
 ```
 var yellow;
+var pink;
 var WIDTH = 800;
-var HEIGHT = 600;
+var HEIGHT = 400;
+var labelsHeight = 50;
+var skyHeight = HEIGHT - labelsHeight;
 
 function setup() {
   yellow = color(255, 204, 0);
@@ -190,11 +247,10 @@ function draw() {
 
 ![suns](images/suns.png)
 
-## 4. In progress
 
-Now we'll do a few more things. We'll get the sun hight based on the sunrise time of each city, making sure we're subtracting the timestamp since the beginning of the day. 
 
-Notice we're iterating over the cities that are accessed through `data.list`, picking the city with the `i` index and then accessing the sunrise timestamp with `data.list[i].sunrise`.
+
+So here is the code.
 
 ```
 var WIDTH = 800;
@@ -222,7 +278,7 @@ function draw() {
     var sunrise = data.list[i].sunrise - data.today;
     var cityX = 130 * i + 30;
     var sunHeight = skyHeight - (skyHeight * sunrise/84600);
-    
+
     // Labels
     fill(0);
     textAlign(CENTER);

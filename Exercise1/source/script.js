@@ -1,75 +1,13 @@
-// DATA IN JSON FORMAT
-// It is usually loaded separately, but let's start here
-// Jump to the end of this to line 66
-// =====================================================
-
-var data = {
-  "today": 1488326400,
-  "list": [
-    {
-      "sunrise": 1488349619,
-      "temp": 16.5,
-      "wind": {
-        "speed": 2.1,
-        "deg": 230
-      },
-      "id": 6356055,
-      "name": "Barcelona"
-    },
-    {
-      "sunrise": 1488358110,
-      "temp": 27.08,
-      "wind": {
-        "speed": 1.5,
-        "deg": 160
-      },
-      "id": 3451190,
-      "name": "Rio de Janeiro"
-    },
-    {
-      "sunrise": 1488319487,
-      "temp": -0.71,
-      "wind": {
-        "speed": 0.5,
-        "deg": 130
-      },
-      "id": 1835848,
-      "name": "Seoul"
-    },
-    {
-      "sunrise": 1488378122,
-      "temp": 8.3,
-      "wind": {
-        "speed": 1.05,
-        "deg": 95.0024
-      },
-      "id": 5368361,
-      "name": "Los Angeles"
-    },
-    {
-      "sunrise": 1488337514,
-      "temp": 16.31,
-      "wind": {
-        "speed": 6.2,
-        "deg": 270
-      },
-      "id": 112931,
-      "name": "Tehran"
-    }
-  ]
-};
-
 // CODE WILL START HERE
 // =====================
+var data;
+function preload() {
+  var url = '../5cities_mini.json';
+  data = loadJSON(url);
+}
+
 var yellow;
 var pink;
-
-var weather;
-/*function preload() {
-  var url = '../5cities_mini.json';
-  weather = loadJSON(url);
-}*/
-
 var WIDTH = 800;
 var HEIGHT = 400;
 var labelsHeight = 50;
@@ -103,12 +41,12 @@ function draw() {
 
     // Background sky
     fill(pink)
-    rect(cityX - 30, 0, 130, skyHeight)
+    //rect(cityX - 30, 0, 130, skyHeight)
 
     // Suns
     fill(255, 204, 0);
     strokeWeight(2);
     stroke(255, 255, 255);
-    ellipse(cityX + 35, sunHeight, 50, 50);
+    //ellipse(cityX + 35, sunHeight, 50, 50);
   }
 }
