@@ -80,9 +80,28 @@ The title of the video is stored into: items[x].snippet.title
 
 **sketch.js**
 ```
-for(var i = 0; i<data.items.length; i++) {
-  videoID = data.items[i].id.videoId;
-  videoName = data.items[i].snippet.title;
+var url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&location=48.848998,%202.347541&locationRadius=100m&order=viewCount&key=[KEY]'
+var videoID;
+var videoName;
+var link = [5];
+var title = [5];
+
+
+function setup() {
+  loadJSON(url,gotData); 
+}
+
+function gotData(data) {
+  if(data) {
+    for(var i = 0; i<data.items.length; i++) {
+    videoID = data.items[i].id.videoId;
+    videoName = data.items[i].snippet.title;
+    link[i] = 'https://www.youtube.com/watch?v=' + videoID;
+    title[i] = videoName;
+    print(link[i]);
+    print(title[i]);
+    }
+  }
 }
 ```
 
@@ -107,10 +126,67 @@ document.getElementById("demo").innerHTML += result + "<br>";
 
 ## D: Going further
 
-### 1: Input field for GPS data
+### 1: Local video density map
+Now we are going to create a youtube video density map. To do this in a really simple way, we are just going to make a black screen with 'n' points randomly displayed where 'n' is the number of videos that have been uploaded within 100m, in other words the number of results that we have.
+Luckily for us, we can directly find this data in our api query. our drawing method will be the following: count from 0 to numberVideos, and display a point at a random position at each stage.
+
+**sketch.js**
+```
+function videoDensity(data) {
+  background(0);
+  var numberVideos = data.pageInfo.totalResults;
+  print(numberVideos);
+  for(var i=0; i<numberVideos; i++) {
+    point(random(width),random(height));
+  }
+}
+```
+
+### 2: Input field for GPS data
 Now we have a webpage that shows us the most viewed youtube videos within 100m, but the GPS point is fixed, we could modify it to give the user the opportunity to select the area he wants video from.
+In order to do so, we will have to work a bit more with the HTML of our project.
 
-### 2: Local video density map
-How could we do to create a visualisation of the local youtube density?
+First, let's create a new HTML imput fiels and submit button in order to be able to enter and transfer information between our page and our script :
+
+**index.html**
+```
+<p>
+  Get me local videos from (gps data) <input id ="from" value=""></input>
+  <button id="submit">submit</button>
+</p>
+```
+
+if you run your sketch, you should be able to see an input field and a submit button on the page. 
+Now that we have those HTML elements, we need to make them communicate with our script:
+
+**sketch.js**
+```
+var url;
+var videoID;
+var videoName;
+var link = [5];
+var title = [5];
+var gpsInput;
 
 
+function setup() {
+  createCanvas(400,400);
+  loadJSON(url,gotData);
+  
+  gpsInput = select('#from');
+  var button = select('#submit');
+  button.mousePressed(begin);
+}
+```
+The last 3 lines of the setup function are there to connect the HTML elements to our script by Id spectification. Note that we deleted the url from the variables as we will need to change it depending on the value of the input field. We are going to do that in the 'begin' function that will be executed each time that we press the submit button.
+In order to change our API query url dinamically, we need to take out the gps data out of our url and put our variable instead.
+
+**sketch.js**
+```
+function begin() {
+  url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&location=' 
+  + gpsInput.value() + 
+  '&locationRadius=100m&order=viewCount&key=AIzaSyCKT_KXHM_s29V6fHNKH-eNlOXZ-Oh6Gcc';
+  loadJSON(url,gotData);
+}
+```
