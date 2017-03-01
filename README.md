@@ -127,26 +127,6 @@ We will use a prepackaged JSON file and play around with it using p5.
 
 [Go to Exercise 1](Exercise1/)
 
-What is open Data? 
-------------------
-
-The Open Knowledge International defines open data as:
-
-```
-“Open means anyone can freely access, use, modify, and share for any purpose (subject, at most, to requirements that preserve provenance and openness).”
-```
-
-This means open data must be free to use, must have minimized its barriers of access and free to re-use and redistribute. It is a very large and important topic in the current state of our society, and the precise definition of it has enormous legal, political and cultural implications. 
-
-For a longer, more detail and precise explanation that I will ever be able to give, see the [Open Data Handbook](http://opendatahandbook.org/) edited by the Open Knowledge Foundation and the World Bank.
-
-Open Data repositories examples:
-- [London Open Data](https://data.london.gov.uk)
-- [UK GOV](https://data.gov.uk/)
-- [World Bank](http://data.worldbank.org/)
-
-Extra: here is an [interesting article](https://medium.com/memo-random/open-for-who-ce698a8de79c#.g3wbg34ms) about standarizing a definition of open based on a scale from 0 to 5, by the founder of The Office for Creative Research in NYC.
-
 What is an Application Programming Interface or API?
 --------------
 
@@ -165,6 +145,26 @@ Exercise 2: Live API data
 We will be using live API data to visualize / sonify / texify it and play around.
 
 Go to [Exercise 2](Exercise2/).
+
+A note about open data
+----------------------
+
+The Open Knowledge International defines open data as:
+
+```
+“Open means anyone can freely access, use, modify, and share for any purpose (subject, at most, to requirements that preserve provenance and openness).”
+```
+
+This means open data must be free to use, must have minimized its barriers of access and free to re-use and redistribute. It is a very large and important topic in the current state of our society, and the precise definition of it has enormous legal, political and cultural implications. 
+
+For a longer, more detail and precise explanation that I will ever be able to give, see the [Open Data Handbook](http://opendatahandbook.org/) edited by the Open Knowledge Foundation and the World Bank.
+
+Open Data repositories examples:
+- [London Open Data](https://data.london.gov.uk)
+- [UK GOV](https://data.gov.uk/)
+- [World Bank](http://data.worldbank.org/)
+
+Extra: here is an [interesting article](https://medium.com/memo-random/open-for-who-ce698a8de79c#.g3wbg34ms) about standarizing a definition of open based on a scale from 0 to 5, by the founder of The Office for Creative Research in NYC.
 
 Resources and tools to learn more
 ---------------------------------
