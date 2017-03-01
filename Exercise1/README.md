@@ -221,68 +221,68 @@ var skyHeight = HEIGHT - labelsHeight;
 
 function setup() {
   yellow = color(255, 204, 0);
+  pink = color(154, 124, 191);  
   createCanvas(WIDTH, HEIGHT);
 }
 
 function draw() {
   background(255);
-  fill(0);
-  text((frameCount/30).toFixed(2), 10, 10);
-
-
   for (var i = 0; i < data.list.length; i++) {
     var sunrise = data.list[i].sunrise - data.today;
+    var sunHeight = skyHeight - (skyHeight * sunrise/84600);
     var cityX = 130 * i + 30;
 
+    // Labels
     fill(0);
-    text(data.list[i].name + ": " + sunrise, cityX, 550);
+    text(data.list[i].name + ": " + sunrise, cityX, HEIGHT - 50);
 
+    // Suns
     fill(yellow);
     strokeWeight(2);
     stroke(255, 255, 255);
-    ellipse(cityX + 25, 500 - (sunrise * 200/84600), 50, 50);
+    ellipse(cityX + 25, sunHeight, 50, 50);
   }
 }
 ```
 
 ![suns](images/suns.png)
 
+Cool! Now the suns are up in the sky. Their height is an estimation of the time the sun rises in each city at UTC time.
 
+Now the next cool thing to do would be to animate them. How would we do that?
 
-
-So here is the code.
+We'll need to control time with the `frameCount()` and `frameRate()` functions. The first one gives us the number of frames that have passed since the application started running. The second one sets the frame per second. We'll set `frameRate(30)` inside `setup` and will use `frameCount` to get the seconds passed like:
 
 ```
-var WIDTH = 800;
-var HEIGHT = 400;
-var labelsHeight = 50;
-var skyHeight = HEIGHT - labelsHeight;
+var seconds = (frameCount/30) * 1000;
+```
 
-function setup() {
-  frameRate(30);
-  yellow = color(255, 204, 0);
-  pink = color(154, 124, 191);
-  createCanvas(WIDTH, HEIGHT);
-}
+Here I speed things up by a factor of 1000, otherwise we'd be looking at suns move in regular speed, we'd barely see them moving.
 
+Ok so now we need to calculate the speed the suns are rising based on those seconds, and calculate the height of each sun based on their individual sunrise times.
+
+```
+// sun speed
+var yVel = skyHeight / 86400;
+
+// sun height
+var y = sunHeight - seconds * yVel;
+```
+
+Great. Now we just have to update our `draw()` function with this new factors (make sure you've declared `seconds` and `yVel` in `setup` beforehand):
+
+```
 function draw() {
   background(255);
-  fill(yellow);
-  strokeWeight(2);
-  stroke(255, 255, 255);
-  fill(0);
-  text((frameCount/30).toFixed(2), 10, 10);
 
+  seconds = (frameCount/30) * 1000;
 
   for (var i = 0; i < data.list.length; i++) {
     var sunrise = data.list[i].sunrise - data.today;
     var cityX = 130 * i + 30;
     var sunHeight = skyHeight - (skyHeight * sunrise/84600);
 
-    // Labels
-    fill(0);
-    textAlign(CENTER);
-    text(data.list[i].name, cityX + 35, HEIGHT - 20);
+    var y = sunHeight - seconds * yVel;
 
     // Background sky
     fill(pink)
@@ -292,12 +292,24 @@ function draw() {
     fill(255, 204, 0);
     strokeWeight(2);
     stroke(255, 255, 255);
-    ellipse(cityX + 35, sunHeight, 50, 50);
+    ellipse(cityX + 35, y, 50, 50);
+
+    // Labels
+    fill(255);
+    rect(cityX, skyHeight, 130, 50);
+    fill(0);
+    textAlign(CENTER);
+    text(data.list[i].name, cityX + 35, HEIGHT - 20);
   }
+
+  // Second counter
+  fill(0);
+  text(seconds.toFixed(0), 30, 30);
 }
 ```
 
-![suns up](images/suns_up.png)
+And boom!
+![suns rising](images/rising.gif)
 
 ## 5. Next steps
 
@@ -310,3 +322,5 @@ function preload() {
   weather = loadJSON(url);
 }
 ```
+
+[Go back to main file](../README.md)
